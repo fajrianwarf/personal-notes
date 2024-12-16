@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 
 import Card from '../components/Card';
+import Empty from '../components/Empty';
 import FormInput from '../components/FormInput';
+import CardWrapper from '../components/CardWrapper';
 
 import { getInitialData } from '../utils';
 
@@ -59,7 +61,7 @@ class Home extends Component {
         <main className='note-app__body'>
           <FormInput addData={this.addData} />
           <h2>Catatan Aktif</h2>
-          <div className='notes-list'>
+          <CardWrapper>
             {activeNotes.length > 0 ? (
               activeNotes.map((note) => (
                 <Card
@@ -73,11 +75,11 @@ class Home extends Component {
                 />
               ))
             ) : (
-              <p className='notes-list__empty-message'>Tidak ada catatan</p>
+              <Empty />
             )}
-          </div>
+          </CardWrapper>
           <h2>Arsip</h2>
-          <div className='notes-list'>
+          <CardWrapper>
             {archivedNotes.length > 0 ? (
               archivedNotes.map((note) => (
                 <Card
@@ -91,9 +93,9 @@ class Home extends Component {
                 />
               ))
             ) : (
-              <p className='notes-list__empty-message'>Tidak ada catatan</p>
+              <Empty />
             )}
-          </div>
+          </CardWrapper>
         </main>
       </>
     );
