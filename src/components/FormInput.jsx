@@ -22,6 +22,7 @@ class FormInput extends Component {
     }
 
     addData(newData);
+    this.setState({ title: '', body: '' });
   }
 
   handleTitleChange = (e) => {
